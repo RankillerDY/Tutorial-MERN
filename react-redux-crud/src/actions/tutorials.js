@@ -7,6 +7,7 @@ import tutorialService from '../services/tutorial.service'
 
 export const createTutorial = (title, description) => async (dispatch) => {
     try {
+
         const res = await tutorialService.create({ title, description })
         dispatch({
             type: CREATE_TUTORIAL,
@@ -15,7 +16,7 @@ export const createTutorial = (title, description) => async (dispatch) => {
 
         return Promise.resolve(res.data)
     } catch (error) {
-        return Promise.reject(err);
+        return Promise.reject(error);
     }
 
 
@@ -23,7 +24,7 @@ export const createTutorial = (title, description) => async (dispatch) => {
 
 export const retrieveTutorials = () => async (dispatch) => {
     try {
-        const res = await TutorialDataService.getAll();
+        const res = await tutorialService.getAll();
 
         dispatch({
             type: RETRIEVE_TUTORIALS,
@@ -36,7 +37,7 @@ export const retrieveTutorials = () => async (dispatch) => {
 
 export const updateTutorial = (id, data) => async (dispatch) => {
     try {
-        const res = await TutorialDataService.update(id, data);
+        const res = await tutorialService.update(id, data);
 
         dispatch({
             type: UPDATE_TUTORIAL,
@@ -51,7 +52,7 @@ export const updateTutorial = (id, data) => async (dispatch) => {
 
 export const deleteTutorial = (id) => async (dispatch) => {
     try {
-        await TutorialDataService.delete(id);
+        await tutorialService.delete(id);
 
         dispatch({
             type: DELETE_TUTORIAL,
@@ -64,7 +65,7 @@ export const deleteTutorial = (id) => async (dispatch) => {
 
 export const deleteAllTutorials = () => async (dispatch) => {
     try {
-        const res = await TutorialDataService.deleteAll();
+        const res = await tutorialService.deleteAll();
 
         dispatch({
             type: DELETE_ALL_TUTORIALS,
@@ -79,7 +80,7 @@ export const deleteAllTutorials = () => async (dispatch) => {
 
 export const findTutorialsByTitle = (title) => async (dispatch) => {
     try {
-        const res = await TutorialDataService.findByTitle(title);
+        const res = await tutorialService.findByTitle(title);
 
         dispatch({
             type: RETRIEVE_TUTORIALS,

@@ -1,6 +1,7 @@
 import { Link, Route, Router, Routes } from 'react-router-dom';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
+import AddTutorial from './components/add-tutorial.component';
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
 
       <div className="container mt-3">
         <Routes>
-
+          <Route path='/add' Component={AddTutorial} />
         </Routes>
       </div>
     </div>
