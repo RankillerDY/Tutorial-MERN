@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { createTutorial } from '../actions/tutorials';
 import { connect } from 'react-redux'
 
-export default class AddTutorial extends Component {
+class AddTutorial extends Component {
     constructor(props) {
         super(props)
         this.onChangeTitle = this.onChangeTitle.bind(this);
@@ -107,3 +107,4 @@ export default class AddTutorial extends Component {
         )
     }
 }
+export default connect(null, { createTutorial })(AddTutorial);
